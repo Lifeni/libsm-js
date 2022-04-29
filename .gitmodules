@@ -1,0 +1,3 @@
+[submodule "libsm"]
+	path = libsm
+	url = https://github.com/citahub/libsm.git

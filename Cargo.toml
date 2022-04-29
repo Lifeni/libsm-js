@@ -1,0 +1,31 @@
+[package]
+name = "libsm-js"
+version = "0.1.1"
+authors = ["梁峰宁 <liangfengning@foxmail.com>"]
+edition = "2018"
+
+[workspace]
+members = ["libsm"]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+default = ["console_error_panic_hook"]
+
+[dependencies]
+wasm-bindgen = { version = "0.2.63", features = ["serde-serialize"] }
+serde = { version = "1.0", features = ["derive"] }
+libsm = { path = "./libsm" }
+js-sys = "0.3.57"
+console_error_panic_hook = { version = "0.1.6", optional = true }
+hex = "0.4.3"
+getrandom = { version = "0.2", features = ["js"] }
+num-bigint = "0.4.3"
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3.13"
+
+[profile.release]
+# Tell `rustc` to optimize for small code size.
+opt-level = "s"
