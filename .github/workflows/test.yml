@@ -6,14 +6,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-      - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
+        uses: actions/checkout@v2
+          with:
+            submodules: 'true'
 
       - name: Install
         run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 
       - name: Run Test
-      - run: cargo test
-      - run: wasm-pack test --headless --chrome
-      - run: wasm-pack test --headless --firefox
+        run: cargo test
+        run: wasm-pack test --headless --chrome
+        run: wasm-pack test --headless --firefox
