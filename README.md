@@ -2,7 +2,7 @@
 
 [![npm (scoped)](https://img.shields.io/npm/v/@lifeni/libsm-js)](https://www.npmjs.com/package/@lifeni/libsm-js)
 
-Convert [`libsm`](https://github.com/citahub/libsm) to WebAssembly.
+A WebAssembly Library of SM2, SM3 and SM4. Convert [`libsm`](https://github.com/citahub/libsm) to WebAssembly.
 
 ## Usage
 
