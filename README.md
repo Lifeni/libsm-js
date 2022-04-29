@@ -17,7 +17,7 @@ npm i @lifeni/libsm-js
 ## Build & Publish
 
 ```sh
-wasm-pack build --scope @lifeni
+wasm-pack build --scope lifeni
 cd pkg
 npm publish --access=public
 ```
