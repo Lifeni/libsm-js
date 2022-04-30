@@ -2,7 +2,7 @@
 
 [![npm (scoped)](https://img.shields.io/npm/v/@lifeni/libsm-js)](https://www.npmjs.com/package/@lifeni/libsm-js)
 
-A WebAssembly Library of SM2, SM3 and SM4. Convert [`libsm`](https://github.com/citahub/libsm) to WebAssembly.
+A WebAssembly Library of SM2, SM3 and SM4. Based on [`libsm`](https://github.com/citahub/libsm).
 
 ## Usage
 
@@ -17,7 +17,7 @@ npm i @lifeni/libsm-js
 ## Build & Publish
 
 ```sh
-wasm-pack build --scope lifeni
+wasm-pack build --target web --scope lifeni
 cd pkg
 npm publish --access=public
 ```
