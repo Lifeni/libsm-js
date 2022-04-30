@@ -11,7 +11,7 @@ extern "C" {
 }
 
 #[wasm_bindgen(start)]
-pub fn init() {
+pub fn start() {
     set_panic_hook();
     log("[libsm-js] wasm loaded");
 }
