@@ -20,8 +20,8 @@ fn key_exchange() {
     let id_a = "0000";
     let id_b = "9999";
 
-    let mut ctx1 = SM2ExchangeA::new(id_a, id_b, &pk_a, &pk_b, &sk_a);
-    let mut ctx2 = SM2ExchangeB::new(id_a, id_b, &pk_a, &pk_b, &sk_b);
+    let mut ctx1 = SM2ExchangeA::new(16, id_a, id_b, &pk_a, &pk_b, &sk_a);
+    let mut ctx2 = SM2ExchangeB::new(16, id_a, id_b, &pk_a, &pk_b, &sk_b);
 
     let r_a = ctx1.exchange1();
     let exchange2_keypair = ctx2

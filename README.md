@@ -22,6 +22,12 @@ cd pkg
 npm publish --access=public
 ```
 
+## Test
+
+```sh
+ wasm-pack test --node
+```
+
 ## License
 
 This project is licensed under either of

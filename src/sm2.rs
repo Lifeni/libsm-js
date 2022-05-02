@@ -64,10 +64,9 @@ pub struct SM2Encrypt {
 #[wasm_bindgen]
 impl SM2Encrypt {
     #[wasm_bindgen(constructor)]
-    pub fn new(pk: &[u8]) -> SM2Encrypt {
+    pub fn new(klen: usize, pk: &[u8]) -> SM2Encrypt {
         let ctx = SigCtx::new();
         let pk = ctx.load_pubkey(pk).unwrap();
-        let klen: usize = 128;
         let encrypt_ctx = EncryptCtx::new(klen, pk);
         SM2Encrypt { encrypt_ctx }
     }
@@ -85,10 +84,9 @@ pub struct SM2Decrypt {
 #[wasm_bindgen]
 impl SM2Decrypt {
     #[wasm_bindgen(constructor)]
-    pub fn new(sk: &[u8]) -> SM2Decrypt {
+    pub fn new(klen: usize, sk: &[u8]) -> SM2Decrypt {
         let ctx = SigCtx::new();
         let sk = ctx.load_seckey(sk).unwrap();
-        let klen: usize = 128;
         let decrypt_ctx = DecryptCtx::new(klen, sk);
         SM2Decrypt { decrypt_ctx }
     }
@@ -107,12 +105,18 @@ pub struct SM2ExchangeA {
 #[wasm_bindgen]
 impl SM2ExchangeA {
     #[wasm_bindgen(constructor)]
-    pub fn new(id_a: &str, id_b: &str, pk_a: &[u8], pk_b: &[u8], sk_a: &[u8]) -> SM2ExchangeA {
+    pub fn new(
+        klen: usize,
+        id_a: &str,
+        id_b: &str,
+        pk_a: &[u8],
+        pk_b: &[u8],
+        sk_a: &[u8],
+    ) -> SM2ExchangeA {
         let ctx = SigCtx::new();
         let pk_a = ctx.load_pubkey(pk_a).unwrap();
         let pk_b = ctx.load_pubkey(pk_b).unwrap();
         let sk_a = ctx.load_seckey(sk_a).unwrap();
-        let klen: usize = 128;
         let exchange_ctx = ExchangeCtxA::new(klen, id_a, id_b, pk_a, pk_b, sk_a);
         SM2ExchangeA { ctx, exchange_ctx }
     }
@@ -145,12 +149,18 @@ pub struct SM2ExchangeB {
 #[wasm_bindgen]
 impl SM2ExchangeB {
     #[wasm_bindgen(constructor)]
-    pub fn new(id_a: &str, id_b: &str, pk_a: &[u8], pk_b: &[u8], sk_b: &[u8]) -> SM2ExchangeB {
+    pub fn new(
+        klen: usize,
+        id_a: &str,
+        id_b: &str,
+        pk_a: &[u8],
+        pk_b: &[u8],
+        sk_b: &[u8],
+    ) -> SM2ExchangeB {
         let ctx = SigCtx::new();
         let pk_a = ctx.load_pubkey(pk_a).unwrap();
         let pk_b = ctx.load_pubkey(pk_b).unwrap();
         let sk_b = ctx.load_seckey(sk_b).unwrap();
-        let klen: usize = 128;
         let exchange_ctx = ExchangeCtxB::new(klen, id_a, id_b, pk_a, pk_b, sk_b);
         SM2ExchangeB { ctx, exchange_ctx }
     }

@@ -1,7 +1,7 @@
 [package]
 name = "libsm-js"
 description = "A WebAssembly Library of SM2, SM3 and SM4."
-version = "0.1.4"
+version = "0.1.5"
 authors = ["梁峰宁 <liangfengning@foxmail.com>"]
 edition = "2018"
 
